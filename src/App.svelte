@@ -139,6 +139,7 @@
 	<button class="btn btnIndo" class:selected="{current === 'indo'}" on:click={changetoIndo}> Indochina </button>
 	<button class="btn btnClear" on:click={clearStack}> clear </button>
 
+
 	{#each displayStack as image}
 		<HernanFoto url={image.url} parentWidth={w} sideBarWidth={0} />
 	{/each}
@@ -146,6 +147,9 @@
 
 <section class='info'>
 	{@html infoText}
+</section>
+<section class='credits'>
+	<p>website by cami and me. code on <a href='https://github.com/cadazab/fotos_preparado' color=white>github</a></p>
 </section>
 
 <style>
@@ -230,6 +234,27 @@
   		right:  50px;
 
 	 	top:  50px;
+	}
+
+
+	.credits {
+
+
+   		/*border: 2px solid #000000;*/
+
+
+		padding: 10px;
+		position: fixed;
+		z-index: 999;
+		width: 200px;
+  		color: white;
+  		/*background: white;*/
+  		font-family: monospace;
+  		font-style: bold;
+  		font-size: large;
+  		right:  50px;
+
+	 	bottom:  50px;
 	}
 
 
