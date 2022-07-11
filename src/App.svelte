@@ -8,6 +8,11 @@
 	let h;
 	let w;
 
+
+	let textJahrder = "olympus mju-II";
+	let textCopycat = "<h3>Copycat</h3><p>a bunch of scans made with a handhold scanner.</p>";
+
+
 	let albumJahrder = [
 		'https://64.media.tumblr.com/8414b04021aaa283ab403d18fa3dbf00/tumblr_onsv741Nf41v4tpzoo1_1280.jpg',
 		'https://64.media.tumblr.com/2f5c27efedf0f4cbbcc5263e6a5c0790/tumblr_onsus09NZA1v4tpzoo1_1280.jpg',
@@ -19,7 +24,7 @@
 		'https://64.media.tumblr.com/3f3f2bba4daf914ac907d51d48a3e3d3/tumblr_obg2tcyNsT1v4tpzoo1_1280.jpg',
 		'https://64.media.tumblr.com/98be82efd2bd3855007ba1744edffa5a/tumblr_o915b0FkfJ1v4tpzoo1_1280.jpg'
 	];
-	let textJahrder = "olympus mju-II";
+	
 
 	let albumCopycat = [
 		'https://64.media.tumblr.com/5c6833b97ee0b06e9a0732d36e3a60dc/tumblr_n1965vobGl1t8vj3ro1_1280.jpg',
@@ -38,10 +43,12 @@
 		'https://64.media.tumblr.com/f7d2f28a8788f8f7e4e4ab9f28c16ecf/tumblr_myya9s07kX1t8vj3ro1_1280.jpg',
 		'https://64.media.tumblr.com/7a98f79cd9fa5eb70cb2d992a2495c3c/tumblr_mxy1no5wtj1t8vj3ro1_1280.jpg'
 		];
-	let textCopycat = "a bunch of scans made with a handhold scanner.";
+	
 
 
+	let current = 'jahr';
 	let images = albumJahrder;
+	let infoText = textJahrder;
 	let displayStack = [];
 	let fotoIndex = 0;
 
@@ -71,11 +78,15 @@
 	};
 
 	const changetoJahrder = () => {
+		current = 'jahr';
 		images = albumJahrder;
+		infoText = textJahrder;
 		fotoIndex = 0
 	};
 	const changetoCopycat = () => {
+		current = 'copy';
 		images = albumCopycat;
+		infoText = textCopycat;
 		fotoIndex = 0
 	};
 	const clearStack = () => {
@@ -90,16 +101,20 @@
 </script>
 
 <div class="wrapper" bind:clientWidth={w} bind:clientHeight={h}>
-	<button class="btnPlus" on:click={handleAdd}> + </button>
-	<button class="btnMinus" on:click={handleRemove}> - </button>
-	<button class="btnJahrder" on:click={changetoJahrder}> Jahr der </button>
-	<button class="btnCopycat" on:click={changetoCopycat}> Copycat </button>
-	<button class="btnClear" on:click={clearStack}> clear </button>
+	<button class="btn btnPlus" on:click={handleAdd}> + </button>
+	<button class="btn btnMinus" on:click={handleRemove}> - </button>
+	<button class="btn btnJahrder" class:selected="{current === 'jahr'}" on:click={changetoJahrder}> Jahr der </button>
+	<button class="btn btnCopycat" class:selected="{current === 'copy'}" on:click={changetoCopycat}> Copycat </button>
+	<button class="btn btnClear" on:click={clearStack}> clear </button>
 
 	{#each displayStack as image}
 		<HernanFoto url={image.url} parentWidth={w} sideBarWidth={0} />
 	{/each}
 </div>
+
+<section class='info'>
+	{@html infoText}
+</section>
 
 <style>
 	.wrapper {
@@ -123,7 +138,21 @@
   		font-style: bold;
   		font-size: large;
   		left:  50px;
+
   	}
+
+ 	.btn:hover {
+   /*background: #e1e1e1;*/
+   		border: 2px solid #000000;
+	}
+
+
+	.selected {
+		background-color: #9e8bff;
+		/*color: white;*/
+	}
+
+
 	 .btnPlus{
 	 	top:  50px;
   		font-size: xx-large;
@@ -143,5 +172,20 @@
 	.btnCopycat {
 		top: 300px;
 		font-style: oblique;
+	}
+	.info {
+		padding: 10px;
+		position: fixed;
+		z-index: 999;
+		width: 200px;
+  		color: blue;
+  		background: white;
+  		border: none;
+  		font-family: monospace;
+  		font-style: bold;
+  		font-size: large;
+  		right:  50px;
+
+	 	top:  50px;
 	}
 </style>
