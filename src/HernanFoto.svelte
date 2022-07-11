@@ -21,7 +21,7 @@
 	bind:clientHeight={h}
 	style="position: absolute; top: {top}px; left: {left}px"
 >
-	<img src={url} alt={url} />
+	<img src={url} alt={url} width="600px" />
 </div>
 
 <style>
