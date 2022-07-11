@@ -7,6 +7,7 @@
  * go to link that is displayed
  
 ## to upload:
+<<<<<<< HEAD
  * npm run build
  * replace the `favicon.ico` file
  * open `index.html` and change:
@@ -21,4 +22,7 @@
     ```
     (`./` instead of `/` as a link base)
  * add background color to the body (e.g. `background-color: red;`)
+=======
+ * `npm run build`
+>>>>>>> c96597d339502121fa9196df4ecfc9b3e6ab38d1
  * content of newly created subdirectory `dist` to web server
