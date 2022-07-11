@@ -27,5 +27,12 @@
 <style>
 	div {
 		display: inline-block;
+		  /*border: ;*/
+	    /*border:2px solid #000000;*/
+	      /*shadow: */
+	    /*box-shadow: 5px 5px 5px #000000;
+	    -moz-box-shadow: 5px 5px 5px #000000;
+	    -webkit-box-shadow: 5px 10px 5px #000000;
+	    -khtml-box-shadow: 5px 5px 5px #000000;*/
 	}
 </style>
