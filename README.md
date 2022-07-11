@@ -1,5 +1,7 @@
 # foto preparau
 
+see example at [https://foto.camposcampos.de/](https://foto.camposcampos.de/).
+
 ## to work:
  * go to directory
  * `npm install`
