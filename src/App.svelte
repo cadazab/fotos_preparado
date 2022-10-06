@@ -5,6 +5,7 @@
 	import {albumJahrder} from './lib/albumJahrder.js'
 	import {album2022} from './lib/album2022.js'
 	import {albumIndo} from './lib/albumIndo.js'
+	import {albumCanada} from './lib/albumCanada.js'
 
 	const leftMin = 50;
 	const topMin = 0;
@@ -62,9 +63,10 @@
 	<!-- Album buttons -->
 	<button style="top: 250px;" class="btn btnAlbum" class:selected="{selectedAlbum.name === albumJahrder.name}" on:click={()=>changeAlbum(albumJahrder)}> Jahr der </button>
 	<button style="top: 300px;" class="btn btnAlbum" class:selected="{selectedAlbum.name === albumCopycat.name}" on:click={()=>changeAlbum(albumCopycat)}> Copycat </button>
-	<button style="top: 350px;" class="btn btnAlbum" class:selected="{selectedAlbum.name === albumIndo.name}" on:click={()=>changeAlbum(albumIndo)}> Indochina </button>
-	<button style="top: 400px;" class="btn btnAlbum" class:selected="{selectedAlbum.name === albumBsas.name}" on:click={()=>changeAlbum(albumBsas)}> Baires </button>
-	<button style="top: 450px;" class="btn btnAlbum" class:selected="{selectedAlbum.name === album2022.name}" on:click={()=>changeAlbum(album2022)}> 2022 </button>
+	<button style="top: 350px;" class="btn btnAlbum" class:selected="{selectedAlbum.name === albumIndo.name}"    on:click={()=>changeAlbum(albumIndo)}> Indochina </button>
+	<button style="top: 400px;" class="btn btnAlbum" class:selected="{selectedAlbum.name === albumBsas.name}"    on:click={()=>changeAlbum(albumBsas)}> Baires </button>
+	<button style="top: 450px;" class="btn btnAlbum" class:selected="{selectedAlbum.name === album2022.name}"    on:click={()=>changeAlbum(album2022)}> 2022 </button>
+	<button style="top: 500px;" class="btn btnAlbum" class:selected="{selectedAlbum.name === albumCanada.name}"  on:click={()=>changeAlbum(albumCanada)}> Prairie </button>
 	<!-- Image stack -->
 	{#each displayStack as image}
 		<Foto url={image.url} parentWidth={w} sideBarWidth={0} />
@@ -73,6 +75,9 @@
 
 <section class='info'>
 	{@html selectedAlbum.text}
+</section>
+<section class='instruction'>
+	<p>press <b>+</b></p>
 </section>
 <section class='credits'>
 	<p>website by cami and me. code on <a href='https://github.com/cadazab/fotos_preparado' color=white>github</a></p>
@@ -100,7 +105,6 @@
   		font-style: bold;
   		font-size: large;
   		left:  50px;
-
   	}
  	.btn:hover {
    		border: 2px solid #FF0000;
@@ -134,7 +138,8 @@
 		padding: 10px;
 		width: 200px;
 		/*position*/
-	 	bottom:  50px;
+	 	bottom: 50px;
+  		right:  50px;
 		position: fixed;
 		z-index: 999;
   		/*font*/
@@ -142,6 +147,22 @@
   		font-family: monospace;
   		font-style: bold;
   		font-size: large;
-  		right:  50px;
+	}
+	.instruction {
+		/*box*/
+		padding: 10px;
+		width: 100%;
+		/*position*/
+	 	/*bottom: 300px; */
+	 	/*right:  300px; */
+		position: fixed;
+		z-index: 999;
+		text-align: center;
+  		/*font*/
+  		color: white;
+  		font-family: monospace;
+  		font-style: bold;
+  		font-size: xx-large;
+
 	}
 </style>
